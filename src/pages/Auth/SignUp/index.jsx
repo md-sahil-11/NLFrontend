@@ -64,7 +64,7 @@ export default function SignIn() {
       >
         <Paper elevation={3} sx={{ p: 2 }}>
           <div>
-            <h1>Sign in</h1>
+            <h1>Sign up</h1>
           </div>
           <form>
             <TextField
