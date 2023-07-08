@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import routes from "../routes";
 
 export const AxiosInstance = (service) => {
-  const baseURL = `http://127.0.0.1:8000/api/${service}/`;
+  // const baseURL = `http://127.0.0.1:8000/api/${service}/`;
+  const baseURL = `http://sahil11.pythonanywhere.com/api/${service}/`
   const token = getItemFromLocalStorage("token", "");
   const navigate = useNavigate()
 
