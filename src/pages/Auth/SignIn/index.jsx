@@ -89,6 +89,9 @@ export default function SignUp() {
             <Button variant="contained" color="primary"  onClick={handleSubmit}>
               Submit
             </Button>
+            <br />
+            <br />
+          <span>Use email: <b>admin@amin.com</b> and password: <b>admin</b> for admin login.</span>
           </form>
         </Paper>
       </div>
