@@ -134,7 +134,10 @@ export const AuthProvider = ({ children }) => {
     try {
       if (data === "") return 
       const res = await appService.addCategoryService(data);
-      if (res) toast.success("Category added")
+      if (res) {
+        toast.success("Category added")
+        getCategories()
+      }
     } catch (err) {}
   }
 

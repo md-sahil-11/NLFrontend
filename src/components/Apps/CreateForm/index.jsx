@@ -14,8 +14,7 @@ import InsertPhotoOutlinedIcon from "@mui/icons-material/InsertPhotoOutlined";
 import AuthContext from "../../../contexts/AuthContext";
 
 function AppCreateForm() {
-  const { categories, getCategories, addApp, toast, addCategory } =
-    useContext(AuthContext);
+  const { categories, getCategories, addApp, toast, addCategory } = useContext(AuthContext);
   const [logo, setLogo] = useState(null);
   const [points, setPoints] = useState("");
   const [link, setLink] = useState("");
@@ -26,9 +25,8 @@ function AppCreateForm() {
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
-    setLogo(file);
     if (file) document.getElementById("logo").src = URL.createObjectURL(file);
-    console.log("Uploaded file:", file);
+    setLogo(file);
   };
 
   const handleSubmit = () => {
@@ -37,16 +35,19 @@ function AppCreateForm() {
       return;
     }
     const data = new FormData();
+
     data.append("points", points);
     data.append("link", link);
     data.append("title", title);
     data.append("category_id", category);
     data.append("sub_category_id", subCategory);
     data.append("logo", logo);
+    
     try {
       addApp(data);
     } catch (err) {
       toast.error("Something went wrong!!!");
+    
     }
   };
 
@@ -181,7 +182,6 @@ function AppCreateForm() {
               variant="contained"
               onClick={() => {
                 addCategory({ title: newCategory });
-                getCategories();
               }}
             >
               Add Category

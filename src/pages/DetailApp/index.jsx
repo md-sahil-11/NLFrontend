@@ -17,10 +17,12 @@ import AppListCard from "../../components/Apps/List/list-card";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 
 export default function AppDetail() {
+  useDocumentTitle("App detail");
+
   const { user, app, getApp, addTask, toast } = useContext(AuthContext);
   const { id } = useParams();
   const [screenShot, setScreenShot] = useState(null);
-  useDocumentTitle("App detail");
+
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     setScreenShot(file);
@@ -32,11 +34,13 @@ export default function AppDetail() {
       toast.error("Please, add screenshot of the app to complete this task.")
       return
     }
+    
     const form = new FormData();
     form.append("user_id", user.id);
     form.append("app_id", app.id);
     form.append("is_completed", true);
     form.append("screenshot", screenShot);
+
     addTask(form);
   };
 

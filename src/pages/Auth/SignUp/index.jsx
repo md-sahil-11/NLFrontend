@@ -109,6 +109,7 @@ export default function SignIn() {
               Submit
             </Button>
           </form>
+          <span>Use email: admin@amin.com and password: admin for admin login.</span>
         </Paper>
       </div>
     </Box>

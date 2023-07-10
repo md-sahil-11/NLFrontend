@@ -35,7 +35,7 @@ const AppApi = () => {
 
   const addTask = async (data) => {
     console.log("======Add tasks======");
-    const path = `tasks`
+    const path = "tasks"
     return api.post(path, data)
   }
   
