@@ -6,13 +6,11 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -20,6 +18,10 @@ import Button from "@mui/material/Button";
 import AuthContext from "../../contexts/AuthContext";
 import { Link, useLocation } from "react-router-dom";
 import routes from "../../routes";
+import HomeIcon from '@mui/icons-material/Home';
+import AddIcon from '@mui/icons-material/Add';
+import Person2Icon from '@mui/icons-material/Person2';
+import TaskIcon from '@mui/icons-material/Task';
 
 const drawerWidth = 240;
 
@@ -37,12 +39,12 @@ function Dashboard(props) {
   const adminToolbar = [
     {
       text: "Home",
-      logo: <InboxIcon />,
+      logo: <HomeIcon />,
       pathname: routes.home.path,
     },
     {
       text: "Add App",
-      logo: <InboxIcon />,
+      logo: <AddIcon />,
       pathname: routes.addApp.path,
     },
   ];
@@ -77,17 +79,17 @@ function Dashboard(props) {
   const userToolbar = [
     {
       text: "Home",
-      logo: <InboxIcon />,
+      logo: <HomeIcon />,
       pathname: routes.home.path,
     },
     {
       text: "Profile",
-      logo: <InboxIcon />,
+      logo: <Person2Icon />,
       pathname: routes.profile.path,
     },
     {
       text: "Task",
-      logo: <InboxIcon />,
+      logo: <TaskIcon />,
       pathname: routes.task.path,
     },
   ];

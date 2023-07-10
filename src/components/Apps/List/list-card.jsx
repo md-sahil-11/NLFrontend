@@ -9,11 +9,13 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import routes from "../../../routes";
 
-export default function AppListCard({ item }) {
-
+export default function AppListCard({ item, detail }) {
   return (
     <Box key={item.id} sx={{ p: 2 }}>
-      <Card elevation={0} sx={{ display: "flex", p: 2, justifyContent: "space-between" }}>
+      <Card
+        elevation={0}
+        sx={{ display: "flex", p: 2, justifyContent: "space-between" }}
+      >
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <CardMedia
             component="img"
@@ -30,7 +32,11 @@ export default function AppListCard({ item }) {
               color="text.secondary"
               component="div"
             >
-              <Link to={routes.detailApp.makePath(item.id)}>Details</Link>
+              {detail ? (
+                <a href={item.link} target="_blank">{item.link}</a>
+              ) : (
+                <Link to={routes.detailApp.makePath(item.id)}>Details</Link>
+              )}
             </Typography>
           </CardContent>
         </Box>
@@ -43,7 +49,7 @@ export default function AppListCard({ item }) {
               padding: 1.1,
               maxWidth: 200,
               minWidth: 120,
-              color: "#000000"
+              color: "#000000",
             }}
             variant="contained"
           >

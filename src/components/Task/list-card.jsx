@@ -17,19 +17,19 @@ export default function TaskListCard({ item }) {
           <CardMedia
             component="img"
             sx={{ width: 150, height: 150 }}
-            image={item.app.logo}
+            image={item.logo}
             alt="Live from space album cover"
           />
           <CardContent sx={{ flex: "1 0 auto", textAlign: "left" }}>
             <Typography component="div" variant="h5">
-              {item.app.title}
+              {item.title}
             </Typography>
             <Typography
               variant="subtitle1"
               color="text.secondary"
               component="div"
             >
-              <Link to={routes.detailApp.makePath(item.app.id)}>Details</Link>
+              <Link to={routes.detailApp.makePath(item.id)}>Details</Link>
             </Typography>
           </CardContent>
         </Box>
@@ -46,7 +46,7 @@ export default function TaskListCard({ item }) {
             }}
             variant="contained"
           >
-            {item.app.points} POINTS
+            {item.points} POINTS
           </Button>
           <br />
         </Box>

@@ -25,7 +25,7 @@ export default function SignUp() {
 
   useEffect(() => {
     if (user) navigate(routes.home.path)
-  }, [])
+  }, [user])
 
   const handleSubmit = (event) => {
     event.preventDefault();

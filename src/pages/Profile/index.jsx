@@ -8,8 +8,12 @@ import AuthContext from "../../contexts/AuthContext";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 
 export default function Profile() {
-  const { user } = React.useContext(AuthContext);
+  const { user, getUser } = React.useContext(AuthContext);
   useDocumentTitle("Profile")
+
+  React.useEffect(() => {
+    getUser()
+  }, [])
 
   return (
     <>

@@ -8,6 +8,7 @@ import {
   InputLabel,
   Box,
   Grid,
+  Divider,
 } from "@mui/material";
 import InsertPhotoOutlinedIcon from "@mui/icons-material/InsertPhotoOutlined";
 import AuthContext from "../../../contexts/AuthContext";
@@ -138,6 +139,7 @@ function AppCreateForm() {
         </Grid>
         <Grid item xs={12}>
           <TextField
+            type={"number"}
             label="Add Points"
             onChange={(e) => setPoints(e.target.value)}
             variant="outlined"
@@ -154,11 +156,11 @@ function AppCreateForm() {
           />
         </Grid>
         <Grid item xs={12}>
-          <Button onClick={handleSubmit}>Submit</Button>
+          <Button variant="contained" onClick={handleSubmit}>Submit</Button>
         </Grid>
       </Grid>
       <br />
-      <br />
+      <Divider />
       <Box sx={{ m: 3 }}>
         <Grid container rowSpacing={2}>
           <Grid item xs={12}>
@@ -187,7 +189,6 @@ function AppCreateForm() {
           </Grid>
         </Grid>
       </Box>
-      <br />
       <br />
     </Box>
   );

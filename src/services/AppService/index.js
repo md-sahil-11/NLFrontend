@@ -74,9 +74,9 @@ const AppService = () => {
     });
   };
 
-  const editTaskService = (id, data) => {
+  const addTaskService = (data) => {
     return new Promise((resolve, reject) => {
-      AppApi.editTask(id, data)
+      AppApi.addTask(data)
         .then((res) => {
           if (res) resolve(res);
           else reject("Something went wrong!!");
@@ -106,7 +106,7 @@ const AppService = () => {
     listAppsService,
     getAppService,
     getTasksService,
-    editTaskService,
+    addTaskService,
     addCategoryService
   };
 

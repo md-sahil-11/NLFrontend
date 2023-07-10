@@ -34,18 +34,22 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     setLoading(true);
-    (async () => {
-      if (user === null && token && token !== "") {
-        try {
-          const res = await service.getUserService();
-          console.log(res.data);
-          setUser(res.data);
-        } catch (err) {}
-      }
-    })();
+    // (async () => {
+    if (user === null && token && token !== "") {
+      getUser()
+    }
+    // })();
     setLoading(false);
     return () => setLoading(true);
   }, [children]);
+
+  const getUser = async () => {
+    try {
+      const res = await service.getUserService();
+      console.log(res.data);
+      setUser(res.data);
+    } catch (err) {}
+  }
 
 
   const registerUser = async (data) => {
@@ -56,7 +60,10 @@ export const AuthProvider = ({ children }) => {
       loadDataHelper(res.data.data)
       navigate(routes.home.path);
       toast.success("Sign up successful!")
-    } catch (err) {}
+    } catch (err) {
+      toast.error("Something went wrong!")
+      setLoading(false)
+    }
   };
 
   const loginUser = async (data) => {
@@ -117,9 +124,11 @@ export const AuthProvider = ({ children }) => {
     } catch (err) {}
   }
 
-  const editTask = async (id, data) => {
+  const addTask = async (data) => {
+    console.log(data)
     try {
-      const res = await appService.editTaskService(id, data);
+      const res = await appService.addTaskService(data);
+      toast.success("Congrats, Task completed!");
     } catch (err) {}
   }
 
@@ -142,7 +151,8 @@ export const AuthProvider = ({ children }) => {
     toast,
     tasks,
     getTasks,
-    editTask,
+    addTask,
+    getUser,
     listApps,
     getApp,
     getTasks,

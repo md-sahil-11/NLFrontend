@@ -27,7 +27,7 @@ export default function SignIn() {
 
   useEffect(() => {
     if (user) navigate(routes.home.path)
-  }, [])
+  }, [user])
 
   const handleSubmit = (event) => {
     event.preventDefault();

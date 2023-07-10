@@ -29,14 +29,14 @@ const AppApi = () => {
 
   const getTasks = async (data) => {
     console.log("======Get tasks======");
-    const path = `tasks?completed=${data}`
+    const path = `apps?completed=${data}`
     return api.get(path)
   }
 
-  const editTask = async (id, data) => {
-    console.log("======Edit tasks======");
-    const path = `tasks/${id}`
-    return api.put(path, data)
+  const addTask = async (data) => {
+    console.log("======Add tasks======");
+    const path = `tasks`
+    return api.post(path, data)
   }
   
   const addCategory = async (data) => {
@@ -51,7 +51,7 @@ const AppApi = () => {
     listApps,
     getApp,
     getTasks,
-    editTask,
+    addTask,
     addCategory,
   };
 
