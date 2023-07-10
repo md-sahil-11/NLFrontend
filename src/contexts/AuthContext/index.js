@@ -34,11 +34,9 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     setLoading(true);
-    // (async () => {
     if (user === null && token && token !== "") {
       getUser()
     }
-    // })();
     setLoading(false);
     return () => setLoading(true);
   }, [children]);
